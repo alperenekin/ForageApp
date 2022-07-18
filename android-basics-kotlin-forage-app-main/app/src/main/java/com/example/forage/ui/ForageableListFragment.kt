@@ -66,7 +66,6 @@ class ForageableListFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        // TODO: observe the list of forageables from the view model and submit it the adapter
         viewModel.forageableList.observe(this.viewLifecycleOwner){
           items ->
             items.let {

@@ -25,7 +25,7 @@ import com.example.forage.model.Forageable
  * Room database to persist data for the Forage app.
  * This database stores a [Forageable] entity
  */
-@Database(entities = [Forageable::class], version = 1, exportSchema = false)
+@Database(entities = [Forageable::class], version = 2, exportSchema = false)
 abstract class ForageDatabase : RoomDatabase(){
     abstract fun forageableDao() : ForageableDao
 
@@ -39,7 +39,7 @@ abstract class ForageDatabase : RoomDatabase(){
                     context,
                     ForageDatabase::class.java,
                     "app_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
 
                 instance
